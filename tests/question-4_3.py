@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> np.allclose(A, [[0, 12, -1], [-1, -1, -1], [11, 5, 5]])
+          >>> type(h) == types.FunctionType
           True
           """,
           'hidden': False,
@@ -14,40 +14,23 @@ test = {
         },
         {
           'code': r"""
-          >>> type(A) == np.ndarray
-          True
-          """,
-          'hidden': False,
-          'locked': False
-        },
-        {
-          'code': r"""
-          >>> np.allclose(b, [-2, 1, 7])
-          True
-          """,
-          'hidden': False,
-          'locked': False
-        },
-        {
-          'code': r"""
-          >>> type(b) == np.ndarray
-          True
+          >>> len(param) # wrong number of argument
+          1
           """,
           'hidden': False,
           'locked': False
         }
       ],
       'scored': True,
-      'setup': 'import numpy as np',
+      'setup': 'import types; import inspect; param = inspect.signature(h).parameters',
       'teardown': '',
       'type': 'doctest'
-
     },
     {
       'cases': [
         {
           'code': r"""
-          >>> np.allclose(c, [5., -6., 18.])
+          >>> type(x_array)==np.ndarray 
           True
           """,
           'hidden': False,
@@ -55,7 +38,31 @@ test = {
         },
         {
           'code': r"""
-          >>> type(c) == np.ndarray
+          >>> np.allclose(x_array, [-4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+      ],
+      'scored': True,
+      'setup': 'import numpy as np',
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
+        {
+          'code': r"""
+          >>> type(y_array)==np.ndarray
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> np.allclose(y_array, [1.33830226e-04, 4.43184841e-03, 5.39909665e-02, 2.41970725e-01, 3.98942280e-01, 2.41970725e-01, 5.39909665e-02, 4.43184841e-03, 1.33830226e-04])
           True
           """,
           'hidden': False,

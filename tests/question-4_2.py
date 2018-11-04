@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> np.allclose(w, [0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.,  1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2., 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.])
+          >>> type(t_array)==np.ndarray 
           True
           """,
           'hidden': False,
@@ -14,15 +14,18 @@ test = {
         },
         {
           'code': r"""
-          >>> np.allclose(wbits, [0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7])
+          >>> np.allclose(t_array, array_42_ref)
           True
           """,
           'hidden': False,
           'locked': False
-        }
+        },
       ],
       'scored': True,
-      'setup': 'import numpy as np',
+      'setup': """
+import numpy as np
+array_42_ref = [3., 3.04959014, 3.09838668, 3.14642654, 3.19374388, 3.24037035, 3.28633535, 3.33166625, 3.3763886, 3.42052628, 3.46410162]
+""",
       'teardown': '',
       'type': 'doctest'
     }

@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> np.allclose(odd, [ 1.,  3.,  5.,  7.,  9., 11., 13., 15., 17., 19., 21., 23., 25., 27., 29., 31., 33., 35., 37., 39., 41., 43., 45., 47., 49., 51., 53., 55.])
+          >>> type(a_array) == np.ndarray
           True
           """,
           'hidden': False,
@@ -14,16 +14,47 @@ test = {
         },
         {
           'code': r"""
-          >>> np.allclose(odd_sq, [[ 1.,  3.,  5.,  7.,  9., 11., 13.],[15., 17., 19., 21., 23., 25., 27.],[29., 31., 33., 35., 37., 39., 41.],[43., 45., 47., 49., 51., 53., 55.]])
+          >>> a_array.shape
+          (3, 3)
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> np.allclose(a_array, [[11,2,13],[4,15,6],[7,8,19]])
           True
           """,
           'hidden': False,
           'locked': False
         }
-          ,
+      ],
+      'scored': True,
+      'setup': 'import numpy as np',
+      'teardown': '',
+      'type': 'doctest'
+    },
+    {
+      'cases': [
         {
           'code': r"""
-          >>> np.allclose(odd_bits, [[17., 21., 25.],[31., 35., 39.]])
+          >>> type(abis_array) == np.ndarray
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> abis_array.shape
+          (3, 3)
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> np.allclose(abis_array, [[121, 4, 169], [16, 225, 36], [49, 64, 361]])
           True
           """,
           'hidden': False,
@@ -37,4 +68,3 @@ test = {
     }
   ]
 }
-

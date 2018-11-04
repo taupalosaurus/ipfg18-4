@@ -10,7 +10,12 @@
       "tests/question-4_3.py": "ok_test",
       "tests/question-4_4.py": "ok_test",
       "tests/question-4_5.py": "ok_test",
-      "tests/question-4_6.py": "ok_test"
+      "tests/question-4_6.py": "ok_test",
+      "tests/question-4_7.py": "ok_test",
+      "tests/question-4_8.py": "ok_test",
+      "tests/question-4_9.py": "ok_test",
+      "tests/question-4_10.py": "ok_test",
+      "tests/question-4_11.py": "ok_test"
     },
     "default_tests": [
     ],

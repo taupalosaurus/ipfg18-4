@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(h) == types.FunctionType
+          >>> type(array_from_list)==np.ndarray 
           True
           """,
           'hidden': False,
@@ -14,15 +14,18 @@ test = {
         },
         {
           'code': r"""
-          >>> len(param) # wrong number of argument
-          1
+          >>> np.allclose(array_from_list, array_41_ref)
+          True
           """,
           'hidden': False,
           'locked': False
-        }
+        },
       ],
       'scored': True,
-      'setup': 'import types; import inspect; param = inspect.signature(h).parameters',
+      'setup': """
+import numpy as np
+array_41_ref = [-1., -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1, 0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.]
+""",
       'teardown': '',
       'type': 'doctest'
     },
@@ -30,7 +33,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(x)==np.ndarray 
+          >>> type(array_from_linspace)==np.ndarray 
           True
           """,
           'hidden': False,
@@ -38,7 +41,7 @@ test = {
         },
         {
           'code': r"""
-          >>> np.allclose(x, [-4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
+          >>> np.allclose(array_from_linspace, array_41_ref)
           True
           """,
           'hidden': False,
@@ -46,15 +49,17 @@ test = {
         },
       ],
       'scored': True,
-      'setup': 'import numpy as np',
-      'teardown': '',
+      'setup': """
+import numpy as np
+array_41_ref = [-1., -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1, 0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.]
+""",      'teardown': '',
       'type': 'doctest'
     },
     {
       'cases': [
         {
           'code': r"""
-          >>> type(y)==np.ndarray
+          >>> type(array_from_zeros)==np.ndarray 
           True
           """,
           'hidden': False,
@@ -62,16 +67,18 @@ test = {
         },
         {
           'code': r"""
-          >>> np.allclose(y, [1.33830226e-04, 4.43184841e-03, 5.39909665e-02, 2.41970725e-01, 3.98942280e-01, 2.41970725e-01, 5.39909665e-02, 4.43184841e-03, 1.33830226e-04])
+          >>> np.allclose(array_from_zeros, array_41_ref)
           True
           """,
           'hidden': False,
           'locked': False
-        }
+        },
       ],
       'scored': True,
-      'setup': 'import numpy as np',
-      'teardown': '',
+      'setup': """
+import numpy as np
+array_41_ref = [-1., -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1, 0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.]
+""",      'teardown': '',
       'type': 'doctest'
     }
   ]
